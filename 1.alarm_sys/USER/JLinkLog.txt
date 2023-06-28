@@ -1,0 +1,30 @@
+
+T0504 000:409 SEGGER J-Link V4.96d Log File (0001ms, 0309ms total)
+T0504 000:409 DLL Compiled: Jan 29 2015 11:45:37 (0001ms, 0309ms total)
+T0504 000:409 Logging started @ 2020-12-23 16:24 (0001ms, 0309ms total)
+T0504 000:410 JLINK_SetWarnOutHandler(...) (0000ms, 0309ms total)
+T0504 000:410 JLINK_OpenEx(...)
+Firmware: J-Link V9 compiled Sep  1 2016 18:29:50
+Hardware: V9.60
+S/N: 69642842
+Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash  returns O.K. (0278ms, 0587ms total)
+T0504 000:688 JLINK_SetErrorOutHandler(...) (0000ms, 0587ms total)
+T0504 000:688 JLINK_ExecCommand("ProjectFile = "F:\毕业设计\毕设 备份\红外报警 毕业设计源文件 （密码修订版）\USER\JLinkSettings.ini"", ...)  returns 0x00 (0036ms, 0623ms total)
+T0504 000:752 JLINK_ExecCommand("Device = STM32F103ZE", ...)Device "STM32F103ZE" selected.  returns 0x00 (0017ms, 0640ms total)
+T0504 000:769 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 0640ms total)
+T0504 000:769 JLINK_GetHardwareVersion()  returns 0x17700 (0000ms, 0640ms total)
+T0504 000:769 JLINK_GetDLLVersion()  returns 49604 (0000ms, 0640ms total)
+T0504 000:769 JLINK_GetFirmwareString(...) (0000ms, 0640ms total)
+T0504 000:788 JLINK_GetDLLVersion()  returns 49604 (0000ms, 0640ms total)
+T0504 000:788 JLINK_GetCompileDateTime() (0000ms, 0640ms total)
+T0504 000:792 JLINK_GetFirmwareString(...) (0000ms, 0640ms total)
+T0504 000:797 JLINK_GetHardwareVersion()  returns 0x17700 (0000ms, 0640ms total)
+T0504 000:820 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0001ms, 0641ms total)
+T0504 000:821 JLINK_SetSpeed(10000) (0000ms, 0641ms total)
+T0504 000:822 JLINK_GetId() >0x108 TIF> >0x108 TIF>STM32Fxxxx: Cannot attach to CPU. Trying connect under reset. >0x108 TIF> >0x108 TIF>
+                JLINK_EMU_HasCapEx(0x0000002C)  returns 0x01 (0000ms, 0000ms total)
+                JLINK_EMU_HasCapEx(0x0000002C)  returns 0x01 (0000ms, 0000ms total)
+                returns 0x00000000 (6605ms, 7246ms total)
+T0504 009:011 JLINK_Close() (0000ms, 7246ms total)
+T0504 009:011  (0000ms, 7246ms total)
+T0504 009:011 Closed (0000ms, 7246ms total)
