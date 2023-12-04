@@ -1,6 +1,6 @@
 # 红外警报系统（毕设）
 > 视频介绍：[红外警报系统](https://www.bilibili.com/video/BV1cT4y1T7gx/?spm_id_from=333.337.search-card.all.click&vd_source=5292a23e9a80c849a2c727ed746aadb7)
->
+> 博文：[矩阵按键控制](https://blog.csdn.net/ling0604/article/details/109643518)
 >  
 
 * 描述：以STM32为主控平台，DIY智能防盗警报系统；集合声光警报、人机交互、警报时间记录与查询、管理员身份认证等功能。
@@ -12,3 +12,5 @@
 5．声报警：语音合成模块（串口报文收发）	     
 6．万年历：带UI可单独设置时分秒（以定时器作时钟源自主开发）	     
 7．RFID：射频识别模块，做门禁&管理员身份认证	        
+
+
