@@ -3,18 +3,18 @@
 
 #include "sys.h"
 
-#define READY	0			// »úÆ÷ÈË×¼±¸¾ÍĞ÷£»
-#define BUSY	1			// »úÆ÷ÈËÃ¦ÂµÖĞ...
+#define READY	0			// æœºå™¨äººå‡†å¤‡å°±ç»ªï¼›
+#define BUSY	1			// æœºå™¨äººå¿™ç¢Œä¸­...
 
-#define ANGLE1(X) TIM_SetCompare1(TIM3,17500 + X * 2000/180);			// ½Ç¶ÈÈ¡Öµ·¶Î§£º  0-180 --> 17500~19500     ¹«Ê½£º 17500+ 2000/180 * ½Ç¶È
-#define ANGLE2(X) TIM_SetCompare2(TIM3,17500 + X * 2000/180);			// BUG: ¹«Ê½´øĞ¡Êı£¬ÂÔÎ¢Ó°Ïì¾«¶È£»
+#define ANGLE1(X) TIM_SetCompare1(TIM3,17500 + X * 2000/180);			// è§’åº¦å–å€¼èŒƒå›´ï¼š  0-180 --> 17500~19500     å…¬å¼ï¼š 17500+ 2000/180 * è§’åº¦
+#define ANGLE2(X) TIM_SetCompare2(TIM3,17500 + X * 2000/180);			// BUG: å…¬å¼å¸¦å°æ•°ï¼Œç•¥å¾®å½±å“ç²¾åº¦ï¼›
 #define ANGLE3(X) TIM_SetCompare3(TIM3,17500 + X * 2000/180);
 #define ANGLE4(X) TIM_SetCompare4(TIM3,17500 + X * 2000/180);
 
-#define PTSUM	20						// ¶¨Òå»úĞµÊÖÓĞ¶àÉÙ¸öµãÎ»£»
+#define PTSUM	20						// å®šä¹‰æœºæ¢°æ‰‹æœ‰å¤šå°‘ä¸ªç‚¹ä½ï¼›
 
-#define AXLESUM FOUR										// ¶¨Òå»úĞµÊÖÓĞ¶àÉÙ¸öÖá
-enum AXLE{ONE=0,TWO,THREE,FOUR,ALL};		// Ã¶¾Ù¶¨Òå»úĞµÊÖ¸÷¸öÖá
+#define AXLESUM FOUR										// å®šä¹‰æœºæ¢°æ‰‹æœ‰å¤šå°‘ä¸ªè½´
+enum AXLE{ONE=0,TWO,THREE,FOUR,ALL};		// æšä¸¾å®šä¹‰æœºæ¢°æ‰‹å„ä¸ªè½´
 
 void Init_RobotPT(u8 which, u8 axle1, u8 axle2, u8 axle3, u8 axle4);
 u8 Enable_axle1(u8 ObjAngle, float Speed);

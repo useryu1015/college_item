@@ -3,28 +3,28 @@
 #include "usart.h" 
 #include "led.h" 
 #include "timer.h" 
-//ALIENTEK¾«Ó¢STM32F103¿ª·¢°å ÊµÑé9
-//PWMÊä³ö ÊµÑé  
-//¼¼ÊõÖ§³Ö£ºwww.openedv.com
-//¹ãÖİÊĞĞÇÒíµç×Ó¿Æ¼¼ÓĞÏŞ¹«Ë¾ 
+//ALIENTEKç²¾è‹±STM32F103å¼€å‘æ¿ å®éªŒ9
+//PWMè¾“å‡º å®éªŒ  
+//æŠ€æœ¯æ”¯æŒï¼šwww.openedv.com
+//å¹¿å·å¸‚æ˜Ÿç¿¼ç”µå­ç§‘æŠ€æœ‰é™å…¬å¸ 
 int main(void)
 {					   
 	u16 led0pwmval=0;
 	u8 dir=1;
 	
-	Stm32_Clock_Init(9);	//ÏµÍ³Ê±ÖÓÉèÖÃ
-	uart_init(72,115200);	//´®¿Ú³õÊ¼»¯Îª115200
-	delay_init(72);	   	 	//ÑÓÊ±³õÊ¼»¯ 
-	LED_Init();		  		//³õÊ¼»¯ÓëLEDÁ¬½ÓµÄÓ²¼ş½Ó¿Ú
+	Stm32_Clock_Init(9);	//ç³»ç»Ÿæ—¶é’Ÿè®¾ç½®
+	uart_init(72,115200);	//ä¸²å£åˆå§‹åŒ–ä¸º115200
+	delay_init(72);	   	 	//å»¶æ—¶åˆå§‹åŒ– 
+	LED_Init();		  		//åˆå§‹åŒ–ä¸LEDè¿æ¥çš„ç¡¬ä»¶æ¥å£
   	
-	TIM3_PWM_Init(899,0);	//²»·ÖÆµ¡£PWMÆµÂÊ=72000/(899+1)=80Khz
+	TIM3_PWM_Init(899,0);	//ä¸åˆ†é¢‘ã€‚PWMé¢‘ç‡=72000/(899+1)=80Khz
 	
    	while(1)
 	{
- 		delay_ms(10);		// 400*10 ms Ò»´ÎÌø±ä£»
+ 		delay_ms(10);		// 400*10 ms ä¸€æ¬¡è·³å˜ï¼›
 		
-		// Ê¹CCR2ÏÈµİÔö£»ºóµİ¼õ£»
-		if(dir)			// ·Ç0£»
+		// ä½¿CCR2å…ˆé€’å¢ï¼›åé€’å‡ï¼›
+		if(dir)			// é0ï¼›
 			led0pwmval++;
 		else 
 			led0pwmval--;	 
@@ -39,7 +39,7 @@ int main(void)
 		
 		LED0_PWM_VAL = led0pwmval;	 		//  CCR2
 		
-		printf("CCR2 ÏÖÔÚÊÇ %d \r\n", led0pwmval);  // ´®¿Ú²é¿´CCRx £»
+		printf("CCR2 ç°åœ¨æ˜¯ %d \r\n", led0pwmval);  // ä¸²å£æŸ¥çœ‹CCRx ï¼›
 	}
 }
 

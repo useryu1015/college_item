@@ -4,7 +4,7 @@
  
  
 EX_LIST=".c .cpp .h .sh"
-FILE_DIR="./2.robot"
+FILE_DIR="./src"
 
 echo "target ${EX_LIST}"
 # 遍历EX_LIST

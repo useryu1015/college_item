@@ -1,15 +1,15 @@
 /*****************************************
- * »úÆ÷ÈË¿ØÖÆ³ÌÐò
+ * æœºå™¨äººæŽ§åˆ¶ç¨‹åº
  * 
 *****************************************/
 
-/********** ³£ÓÃÓ¢Óï *********************
-	axle:		Öá
-	angle:	½Ç¶È
-	PT(point location): µãÎ»
-	origin:	Ô­µã
-	object£ºÄ¿±ê
-	pallet£ºÍÐÅÌ
+/********** å¸¸ç”¨è‹±è¯­ *********************
+	axle:		è½´
+	angle:	è§’åº¦
+	PT(point location): ç‚¹ä½
+	origin:	åŽŸç‚¹
+	objectï¼šç›®æ ‡
+	palletï¼šæ‰˜ç›˜
 *****************************************/
 
 #include "delay.h"
@@ -20,9 +20,9 @@
 #include "robot.h"
 
 
-/****** È«¾Ö±äÁ¿ ********/
+/****** å…¨å±€å˜é‡ ********/
 
-// »úÆ÷ÈËµãÎ»´æ´¢Õ»
+// æœºå™¨äººç‚¹ä½å­˜å‚¨æ ˆ
 struct PTInit{
  u8 axle1;
  u8 axle2;
@@ -32,10 +32,10 @@ struct PTInit{
 };
 
 
-// µãÎ»ÊýÁ¿ÉùÃ÷£»
+// ç‚¹ä½æ•°é‡å£°æ˜Žï¼›
 struct PT_RobotInit PT[PTSUM];
 
-// ÊµÊ±´æ´¢ºÍµ÷ÓÃ£¬µ±Ç°¸÷ÖáµÄ½Ç¶È£»
+// å®žæ—¶å­˜å‚¨å’Œè°ƒç”¨ï¼Œå½“å‰å„è½´çš„è§’åº¦ï¼›
 volatile struct PT_RobotInit RealAngle = {90,90,90,90};		
 
 
@@ -43,8 +43,8 @@ volatile struct PT_RobotInit RealAngle = {90,90,90,90};
 volatile u32 RobotSpeed = 10000;
 
 
-// which: Ñ¡Ôñ¸Ä±äµÄµãÎ»£» 0~19£º0ÊÇÔ­µãµãÎ»Êý¾Ý
-// ÉèÖÃ»úÆ÷ÈËµãÎ»£»
+// which: é€‰æ‹©æ”¹å˜çš„ç‚¹ä½ï¼› 0~19ï¼š0æ˜¯åŽŸç‚¹ç‚¹ä½æ•°æ®
+// è®¾ç½®æœºå™¨äººç‚¹ä½ï¼›
 void Set_RobotPT(u8 which)
 {
 	PT[which].axle1 = RealAngle.axle1;
@@ -53,7 +53,7 @@ void Set_RobotPT(u8 which)
 	PT[which].axle4 = RealAngle.axle4;
 }
 
-// ³õÊ¼»¯µãÎ» ½Ç¶È£»   // ²ÎÊýÃû´ýÐÞÕý axle1ÎªÖá1µÄÄ¿±ê½Ç¶È£»
+// åˆå§‹åŒ–ç‚¹ä½ è§’åº¦ï¼›   // å‚æ•°åå¾…ä¿®æ­£ axle1ä¸ºè½´1çš„ç›®æ ‡è§’åº¦ï¼›
 void Init_RobotPT(u8 which, u8 axle1, u8 axle2, u8 axle3, u8 axle4)
 {
 	PT[which].axle1 = axle1;
@@ -63,104 +63,104 @@ void Init_RobotPT(u8 which, u8 axle1, u8 axle2, u8 axle3, u8 axle4)
 }
 
 
-// ObjAnghle: Ä¿±ê½Ç¶È£» Öá1
-// NowAngle£º µ±Ç°¡¢ÊµÊ±½Ç¶È£»
-// Speed£º ÔÝÊ±²»ÓÃ£»
-// Ê¹ÄÜÖá1µ½Ä¿±ê½Ç¶È1¸öµ¥Î»£»
+// ObjAnghle: ç›®æ ‡è§’åº¦ï¼› è½´1
+// NowAngleï¼š å½“å‰ã€å®žæ—¶è§’åº¦ï¼›
+// Speedï¼š æš‚æ—¶ä¸ç”¨ï¼›
+// ä½¿èƒ½è½´1åˆ°ç›®æ ‡è§’åº¦1ä¸ªå•ä½ï¼›
 u8 Enable_axle1(u8 ObjAngle, float Speed)
 {
 	if(ObjAngle != RealAngle.axle1){
 		RealAngle.axle1 += ObjAngle > RealAngle.axle1 ? +1 : -1; 
-		ANGLE1(RealAngle.axle1);   // Ê¹ÄÜ¶ÔÓ¦ÖáÐý×ª£»Ã¿´Î1¶È£»
+		ANGLE1(RealAngle.axle1);   // ä½¿èƒ½å¯¹åº”è½´æ—‹è½¬ï¼›æ¯æ¬¡1åº¦ï¼›
 		
-		//printf("Ê¹ÄÜ axle1 = %d\r\n", RealAngle.axle1);
+		//printf("ä½¿èƒ½ axle1 = %d\r\n", RealAngle.axle1);
 		return BUSY;
 	}
-	else return READY;		// µ½´ïÄ¿±êÎ»ÖÃ£¬·´À¡¾ÍÐ÷ÐÅºÅ£»
+	else return READY;		// åˆ°è¾¾ç›®æ ‡ä½ç½®ï¼Œåé¦ˆå°±ç»ªä¿¡å·ï¼›
 }
 
-// ObjAnghle: Ä¿±ê½Ç¶È£» Öá1
-// NowAngle£º µ±Ç°¡¢ÊµÊ±½Ç¶È£»
-// Speed£º ÔÝÊ±²»ÓÃ£»
-// Ê¹ÄÜÖá1µ½Ä¿±ê½Ç¶È1¸öµ¥Î»£»
+// ObjAnghle: ç›®æ ‡è§’åº¦ï¼› è½´1
+// NowAngleï¼š å½“å‰ã€å®žæ—¶è§’åº¦ï¼›
+// Speedï¼š æš‚æ—¶ä¸ç”¨ï¼›
+// ä½¿èƒ½è½´1åˆ°ç›®æ ‡è§’åº¦1ä¸ªå•ä½ï¼›
 u8 Enable_axle2(u8 ObjAngle, float Speed)
 {
 	if(ObjAngle != RealAngle.axle2){
 		RealAngle.axle2 += ObjAngle > RealAngle.axle2 ? +1 : -1; 
-		ANGLE1(RealAngle.axle2);   // Ê¹ÄÜ¶ÔÓ¦ÖáÐý×ª£»Ã¿´Î1¶È£»
+		ANGLE1(RealAngle.axle2);   // ä½¿èƒ½å¯¹åº”è½´æ—‹è½¬ï¼›æ¯æ¬¡1åº¦ï¼›
 		
-		//printf("Ê¹ÄÜ axle1 = %d\r\n", RealAngle.axle1);
+		//printf("ä½¿èƒ½ axle1 = %d\r\n", RealAngle.axle1);
 		return BUSY;
 	}
-	else return READY;		// µ½´ïÄ¿±êÎ»ÖÃ£¬·´À¡¾ÍÐ÷ÐÅºÅ£»
+	else return READY;		// åˆ°è¾¾ç›®æ ‡ä½ç½®ï¼Œåé¦ˆå°±ç»ªä¿¡å·ï¼›
 }
 
-// ObjAnghle: Ä¿±ê½Ç¶È£» Öá1
-// NowAngle£º µ±Ç°¡¢ÊµÊ±½Ç¶È£»
-// Speed£º ÔÝÊ±²»ÓÃ£»
-// Ê¹ÄÜÖá1µ½Ä¿±ê½Ç¶È1¸öµ¥Î»£»
+// ObjAnghle: ç›®æ ‡è§’åº¦ï¼› è½´1
+// NowAngleï¼š å½“å‰ã€å®žæ—¶è§’åº¦ï¼›
+// Speedï¼š æš‚æ—¶ä¸ç”¨ï¼›
+// ä½¿èƒ½è½´1åˆ°ç›®æ ‡è§’åº¦1ä¸ªå•ä½ï¼›
 u8 Enable_axle3(u8 ObjAngle, float Speed)
 {
 	if(ObjAngle != RealAngle.axle1){
 		RealAngle.axle3 += ObjAngle > RealAngle.axle3 ? +1 : -1; 
-		ANGLE1(RealAngle.axle3);   // Ê¹ÄÜ¶ÔÓ¦ÖáÐý×ª£»Ã¿´Î1¶È£»
+		ANGLE1(RealAngle.axle3);   // ä½¿èƒ½å¯¹åº”è½´æ—‹è½¬ï¼›æ¯æ¬¡1åº¦ï¼›
 		
-		//printf("Ê¹ÄÜ axle1 = %d\r\n", RealAngle.axle1);
+		//printf("ä½¿èƒ½ axle1 = %d\r\n", RealAngle.axle1);
 		return BUSY;
 	}
-	else return READY;		// µ½´ïÄ¿±êÎ»ÖÃ£¬·´À¡¾ÍÐ÷ÐÅºÅ£»
+	else return READY;		// åˆ°è¾¾ç›®æ ‡ä½ç½®ï¼Œåé¦ˆå°±ç»ªä¿¡å·ï¼›
 }
 
 
-// ObjAnghle: Ä¿±ê½Ç¶È£» Öá1
-// NowAngle£º µ±Ç°¡¢ÊµÊ±½Ç¶È£»
-// Speed£º ÔÝÊ±²»ÓÃ£»
-// Ê¹ÄÜÖá1µ½Ä¿±ê½Ç¶È1¸öµ¥Î»£»
+// ObjAnghle: ç›®æ ‡è§’åº¦ï¼› è½´1
+// NowAngleï¼š å½“å‰ã€å®žæ—¶è§’åº¦ï¼›
+// Speedï¼š æš‚æ—¶ä¸ç”¨ï¼›
+// ä½¿èƒ½è½´1åˆ°ç›®æ ‡è§’åº¦1ä¸ªå•ä½ï¼›
 u8 Enable_axle4(u8 ObjAngle, float Speed)
 {
 	if(ObjAngle != RealAngle.axle4){
 		RealAngle.axle4 += ObjAngle > RealAngle.axle4 ? +1 : -1; 
-		ANGLE1(RealAngle.axle4);   // Ê¹ÄÜ¶ÔÓ¦ÖáÐý×ª£»Ã¿´Î1¶È£»
+		ANGLE1(RealAngle.axle4);   // ä½¿èƒ½å¯¹åº”è½´æ—‹è½¬ï¼›æ¯æ¬¡1åº¦ï¼›
 		
-		//printf("Ê¹ÄÜ axle4 = %d\r\n", RealAngle.axle1);
+		//printf("ä½¿èƒ½ axle4 = %d\r\n", RealAngle.axle1);
 		return BUSY;
 	}
-	else return READY;		// µ½´ïÄ¿±êÎ»ÖÃ£¬·´À¡¾ÍÐ÷ÐÅºÅ£»
+	else return READY;		// åˆ°è¾¾ç›®æ ‡ä½ç½®ï¼Œåé¦ˆå°±ç»ªä¿¡å·ï¼›
 }
 
 
-// »úÐµ±ÛÒÆ¶¯µ½ÍÐÅÌ1µÄÁ÷³Ì£»
+// æœºæ¢°è‡‚ç§»åŠ¨åˆ°æ‰˜ç›˜1çš„æµç¨‹ï¼›
 u8 Module_Pallet1()
 {
 	u8 status;
 	
 	
-	// step1 Ê¹ÄÜ»úÆ÷ÈËµ½Ô­µã£»
+	// step1 ä½¿èƒ½æœºå™¨äººåˆ°åŽŸç‚¹ï¼›
 	do
 	{
 		status = READY;
 		
 		
-		status += Enable_axle1(PT[0].axle1,0);			// Ê¹ÄÜÖá1 µ½Ô­µã£»
+		status += Enable_axle1(PT[0].axle1,0);			// ä½¿èƒ½è½´1 åˆ°åŽŸç‚¹ï¼›
 //		status += Enable_axle2(PT[0].axle2,0);
 //		status += Enable_axle3(PT[0].axle3,0);
 //		status += Enable_axle4(PT[0].axle4,0); 
 
-		printf("Ä¿±êµãÎ»£ºÔ­µã ×´Ì¬£º%d \r\n", status);
+		printf("ç›®æ ‡ç‚¹ä½ï¼šåŽŸç‚¹ çŠ¶æ€ï¼š%d \r\n", status);
 		printf(" axle1=%d, axle2=%d, \r\n", RealAngle.axle1, RealAngle.axle2);
 		
 		delay_us(RobotSpeed);				
 	}while (!READY);
 	
 	
-	// step2 Ê¹ÄÜ»úÆ÷ÈËµ½pallet1´¦£»
+	// step2 ä½¿èƒ½æœºå™¨äººåˆ°pallet1å¤„ï¼›
 	do
 	{
 		status = READY;
 		
 		status += Enable_axle1(PT[1].axle1,0);
 		
-		printf("Ä¿±êµãÎ»£ºÍÐÅÌ1\r\n");
+		printf("ç›®æ ‡ç‚¹ä½ï¼šæ‰˜ç›˜1\r\n");
 		printf(" axle1=%d, axle2=%d, \r\n", RealAngle.axle1, RealAngle.axle2);
 		delay_us(RobotSpeed);				
 	}while (!READY);
@@ -183,16 +183,16 @@ void Enable_Get()
 
 
 
-// »úÆ÷ÈË¸÷Öá Êý¾Ý
+// æœºå™¨äººå„è½´ æ•°æ®
 //struct Robots{
 //	
-//	u8 RealAngle[AXLESUM];			// ÊµÊ±½Ç¶È£»
-//	u8 ObjAngle[AXLESUM];;			// Ä¿±ê½Ç¶È£»
+//	u8 RealAngle[AXLESUM];			// å®žæ—¶è§’åº¦ï¼›
+//	u8 ObjAngle[AXLESUM];;			// ç›®æ ‡è§’åº¦ï¼›
 ////	u8 axle;
 ////	u8 speed;					
 //};
 	
-//struct Robots robot[PTSUM];		// ´´½¨»úÐµÊÖPTSUM¸öµãÎ»Êý¾Ý£»
+//struct Robots robot[PTSUM];		// åˆ›å»ºæœºæ¢°æ‰‹PTSUMä¸ªç‚¹ä½æ•°æ®ï¼›
 
 //void origin_PT(u8 angle)
 //{
@@ -202,9 +202,9 @@ void Enable_Get()
 //}
 
 
-// angle: ½Ç¶È
-// axle£ºÖá
-// Ê¹ÄÜ»úÐµÊÖ
+// angle: è§’åº¦
+// axleï¼šè½´
+// ä½¿èƒ½æœºæ¢°æ‰‹
 //void Enable_Robot(u8 angle, u8 axle, u8 speed)
 //{
 //	while (robot[axle].ObjAngle[angle] != robot[axle].RealAngle[angle])
@@ -214,7 +214,7 @@ void Enable_Get()
 
 //		robot[axle].ObjAngle[angle] > robot[axle].RealAngle[angle] ? robot[axle].RealAngle[angle]++ : robot[axle].RealAngle[angle]--;
 //		//robot[axle].ObjAngle[angle] = robot[axle].RealAngle[angle];
-//		printf("ÏÖÔÚÊÇ %d \r\n", robot[axle].RealAngle[angle]);
+//		printf("çŽ°åœ¨æ˜¯ %d \r\n", robot[axle].RealAngle[angle]);
 //		
 //		ANGLE1(robot[axle].RealAngle[angle]);
 //		
