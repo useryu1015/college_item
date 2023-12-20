@@ -1,0 +1,7 @@
+// 移动轴1到目标角度；
+void Enable_axle1（u8 ObjAngle, float 1）
+{
+if(ObjAngle != NowAngle){
+NowAngle += ObjAngle > NowAngle ?+1:-1; ANGLE1(NowAngle);   //使能对应轴旋转；每次1度
+}
+}
