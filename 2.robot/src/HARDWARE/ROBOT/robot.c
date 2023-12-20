@@ -134,7 +134,6 @@ u8 Module_Pallet1()
 {
 	u8 status;
 	
-	
 	// step1 使能机器人到原点；
 	do
 	{
@@ -152,7 +151,6 @@ u8 Module_Pallet1()
 		delay_us(RobotSpeed);				
 	}while (!READY);
 	
-	
 	// step2 使能机器人到pallet1处；
 	do
 	{
@@ -165,7 +163,7 @@ u8 Module_Pallet1()
 		delay_us(RobotSpeed);				
 	}while (!READY);
 	
-	
+	return status;
 }
 
 void Enable_Put()
