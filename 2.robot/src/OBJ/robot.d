@@ -1,0 +1,37 @@
+..\obj\robot.o: ..\HARDWARE\ROBOT\robot.c
+..\obj\robot.o: ..\SYSTEM\delay\delay.h
+..\obj\robot.o: ..\SYSTEM\sys\sys.h
+..\obj\robot.o: ..\SYSTEM\sys\stm32f10x.h
+..\obj\robot.o: ..\SYSTEM\sys\core_cm3.h
+..\obj\robot.o: H:\MCU\MCU studio\ARM\ARMCC\bin\..\include\stdint.h
+..\obj\robot.o: ..\SYSTEM\sys\system_stm32f10x.h
+..\obj\robot.o: ..\USER\stm32f10x_conf.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
+..\obj\robot.o: ..\SYSTEM\sys\stm32f10x.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_bkp.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_can.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_cec.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_crc.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_dac.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_dma.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_exti.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_flash.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_i2c.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_pwr.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_rtc.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_sdio.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_spi.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
+..\obj\robot.o: ..\STM32F10x_FWLib\inc\misc.h
+..\obj\robot.o: ..\HARDWARE\LED\led.h
+..\obj\robot.o: ..\SYSTEM\usart\usart.h
+..\obj\robot.o: H:\MCU\MCU studio\ARM\ARMCC\bin\..\include\stdio.h
+..\obj\robot.o: ..\HARDWARE\SG90\sg90.h
+..\obj\robot.o: ..\HARDWARE\ROBOT\robot.h

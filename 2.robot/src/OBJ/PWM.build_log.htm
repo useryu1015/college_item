@@ -1,0 +1,70 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\全自动机械臂\全自动机械臂\舵机实验7.24\USER\PWM.uvprojx
+Project File Date:  07/24/2021
+
+<h2>Output:</h2>
+Rebuild target 'PWM'
+compiling main.c...
+..\HARDWARE\ROBOT\robot.h(22): warning:  #1295-D: Deprecated declaration Module_Pallet1 - give arg types
+  u8 Module_Pallet1();
+main.c(13): warning:  #177-D: variable "led0pwmval" was declared but never referenced
+        u16 led0pwmval=0;
+main.c(14): warning:  #177-D: variable "dir" was declared but never referenced
+        u8 dir=1;
+main.c(15): warning:  #177-D: variable "i" was declared but never referenced
+        u8 i;
+main.c: 4 warnings, 0 errors
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+compiling led.c...
+compiling key.c...
+compiling sg90.c...
+compiling robot.c...
+..\HARDWARE\ROBOT\robot.h(22): warning:  #1295-D: Deprecated declaration Module_Pallet1 - give arg types
+  u8 Module_Pallet1();
+..\HARDWARE\ROBOT\robot.c(39): error:  #70: incomplete type is not allowed
+  volatile struct PT_RobotInit RealAngle = {90,90,90,90};               
+..\HARDWARE\ROBOT\robot.c(50): error:  #852: expression must be a pointer to a complete object type
+        PT[which].axle1 = RealAngle.axle1;
+..\HARDWARE\ROBOT\robot.c(51): error:  #852: expression must be a pointer to a complete object type
+        PT[which].axle2 = RealAngle.axle2;
+..\HARDWARE\ROBOT\robot.c(52): error:  #852: expression must be a pointer to a complete object type
+        PT[which].axle3 = RealAngle.axle3;
+..\HARDWARE\ROBOT\robot.c(53): error:  #852: expression must be a pointer to a complete object type
+        PT[which].axle4 = RealAngle.axle4;
+..\HARDWARE\ROBOT\robot.c(59): error:  #852: expression must be a pointer to a complete object type
+        PT[which].axle1 = axle1;
+..\HARDWARE\ROBOT\robot.c(60): error:  #852: expression must be a pointer to a complete object type
+        PT[which].axle2 = axle2;
+..\HARDWARE\ROBOT\robot.c(61): error:  #852: expression must be a pointer to a complete object type
+        PT[which].axle3 = axle3;
+..\HARDWARE\ROBOT\robot.c(62): error:  #852: expression must be a pointer to a complete object type
+        PT[which].axle4 = axle4;
+..\HARDWARE\ROBOT\robot.c(144): error:  #852: expression must be a pointer to a complete object type
+                status += Enable_axle1(PT[0].axle1,0);                  // 使能轴1 到原点；
+..\HARDWARE\ROBOT\robot.c(161): error:  #852: expression must be a pointer to a complete object type
+                status += Enable_axle1(PT[1].axle1,0);
+..\HARDWARE\ROBOT\robot.c(157): warning:  #128-D: loop is not reachable
+        do
+..\HARDWARE\ROBOT\robot.c(36): error:  #235: variable "PT" was declared with a never-completed type
+  struct PT_RobotInit PT[PTSUM];
+..\HARDWARE\ROBOT\robot.c: 2 warnings, 12 errors
+compiling delay.c...
+compiling sys.c...
+compiling usart.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_hd.s...
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+"..\OBJ\PWM.axf" - 12 Error(s), 6 Warning(s).
+Target not created
+</pre>
+</body>
+</html>

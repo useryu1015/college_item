@@ -1,0 +1,139 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information:  ,  , LIC=UB4EV-PRDV8-TL0CD-8UPAG-NP01Y-I1ZVV
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  F:\MDKfive\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DARMSTM.DLL V1.65.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
+Dialog DLL:      TARMSTM.DLL V1.64.0.0
+ 
+<h2>Project:</h2>
+C:\Users\bs\Desktop\实验9 PWM输出实验 寄存器版\USER\test.uvprojx
+Project File Date:  09/23/2020
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling startup_stm32f10x_hd.s...
+compiling test.c...
+test.c(15): warning:  #223-D: function "Stm32_Clock_Init" declared implicitly
+        Stm32_Clock_Init(9);    //系统时钟设置
+test.c(16): error:  #140: too many arguments in function call
+        uart_init(72,115200);   //串口初始化为115200
+test.c(17): error:  #140: too many arguments in function call
+        delay_init(72);                 //延时初始化 
+test.c(40): error:  #20: identifier "LED0_PWM_VAL" is undefined
+                LED0_PWM_VAL = led0pwmval;                      //  CCR2
+test.c: 1 warning, 3 errors
+compiling delay.c...
+..\SYSTEM\delay\delay.c(133): warning:  #223-D: function "SysTick_CLKSourceConfig" declared implicitly
+        SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);   //选择外部时钟  HCLK/8
+..\SYSTEM\delay\delay.c(133): error:  #20: identifier "SysTick_CLKSource_HCLK_Div8" is undefined
+        SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);   //选择外部时钟  HCLK/8
+..\SYSTEM\delay\delay.c: 1 warning, 1 error
+compiling sys.c...
+compiling usart.c...
+..\SYSTEM\usart\usart.c(91): error:  #20: identifier "GPIO_InitTypeDef" is undefined
+    GPIO_InitTypeDef GPIO_InitStructure;
+..\SYSTEM\usart\usart.c(92): error:  #20: identifier "USART_InitTypeDef" is undefined
+        USART_InitTypeDef USART_InitStructure;
+..\SYSTEM\usart\usart.c(93): error:  #20: identifier "NVIC_InitTypeDef" is undefined
+        NVIC_InitTypeDef NVIC_InitStructure;
+..\SYSTEM\usart\usart.c(95): warning:  #223-D: function "RCC_APB2PeriphClockCmd" declared implicitly
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1|RCC_APB2Periph_GPIOA, ENABLE);     //使能USART1，GPIOA时钟
+..\SYSTEM\usart\usart.c(95): error:  #20: identifier "RCC_APB2Periph_USART1" is undefined
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1|RCC_APB2Periph_GPIOA, ENABLE);     //使能USART1，GPIOA时钟
+..\SYSTEM\usart\usart.c(95): error:  #20: identifier "RCC_APB2Periph_GPIOA" is undefined
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1|RCC_APB2Periph_GPIOA, ENABLE);     //使能USART1，GPIOA时钟
+..\SYSTEM\usart\usart.c(98): error:  #20: identifier "GPIO_Pin_9" is undefined
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9; //PA.9
+..\SYSTEM\usart\usart.c(99): error:  #20: identifier "GPIO_Speed_50MHz" is undefined
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+..\SYSTEM\usart\usart.c(100): error:  #20: identifier "GPIO_Mode_AF_PP" is undefined
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;     //复用推挽输出
+..\SYSTEM\usart\usart.c(101): warning:  #223-D: function "GPIO_Init" declared implicitly
+    GPIO_Init(GPIOA, &GPIO_InitStructure);//初始化GPIOA.9
+..\SYSTEM\usart\usart.c(104): error:  #20: identifier "GPIO_Pin_10" is undefined
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;//PA10
+..\SYSTEM\usart\usart.c(105): error:  #20: identifier "GPIO_Mode_IN_FLOATING" is undefined
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;//浮空输入
+..\SYSTEM\usart\usart.c(113): warning:  #223-D: function "NVIC_Init" declared implicitly
+        NVIC_Init(&NVIC_InitStructure); //根据指定的参数初始化VIC寄存器
+..\SYSTEM\usart\usart.c(118): error:  #20: identifier "USART_WordLength_8b" is undefined
+        USART_InitStructure.USART_WordLength = USART_WordLength_8b;//字长为8位数据格式
+..\SYSTEM\usart\usart.c(119): error:  #20: identifier "USART_StopBits_1" is undefined
+        USART_InitStructure.USART_StopBits = USART_StopBits_1;//一个停止位
+..\SYSTEM\usart\usart.c(120): error:  #20: identifier "USART_Parity_No" is undefined
+        USART_InitStructure.USART_Parity = USART_Parity_No;//无奇偶校验位
+..\SYSTEM\usart\usart.c(121): error:  #20: identifier "USART_HardwareFlowControl_None" is undefined
+        USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//无硬件数据流控制
+..\SYSTEM\usart\usart.c(122): error:  #20: identifier "USART_Mode_Rx" is undefined
+        USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx; //收发模式
+..\SYSTEM\usart\usart.c(122): error:  #20: identifier "USART_Mode_Tx" is undefined
+        USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx; //收发模式
+..\SYSTEM\usart\usart.c(124): warning:  #223-D: function "USART_Init" declared implicitly
+    USART_Init(USART1, &USART_InitStructure); //初始化串口1
+..\SYSTEM\usart\usart.c(125): warning:  #223-D: function "USART_ITConfig" declared implicitly
+    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启串口接受中断
+..\SYSTEM\usart\usart.c(125): error:  #20: identifier "USART_IT_RXNE" is undefined
+    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启串口接受中断
+..\SYSTEM\usart\usart.c(126): warning:  #223-D: function "USART_Cmd" declared implicitly
+    USART_Cmd(USART1, ENABLE);                    //使能串口1 
+..\SYSTEM\usart\usart.c(136): warning:  #223-D: function "USART_GetITStatus" declared implicitly
+        if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
+..\SYSTEM\usart\usart.c(136): error:  #20: identifier "USART_IT_RXNE" is undefined
+        if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
+..\SYSTEM\usart\usart.c(138): warning:  #223-D: function "USART_ReceiveData" declared implicitly
+                Res =USART_ReceiveData(USART1); //读取接收到的数据
+..\SYSTEM\usart\usart.c: 8 warnings, 18 errors
+compiling led.c...
+..\HARDWARE\LED\led.c(21): error:  #20: identifier "GPIO_InitTypeDef" is undefined
+   GPIO_InitTypeDef  GPIO_InitStructure;
+..\HARDWARE\LED\led.c(23): warning:  #223-D: function "RCC_APB2PeriphClockCmd" declared implicitly
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB|RCC_APB2Periph_GPIOE, ENABLE);    //使能PB,PE端口时钟
+..\HARDWARE\LED\led.c(23): error:  #20: identifier "RCC_APB2Periph_GPIOB" is undefined
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB|RCC_APB2Periph_GPIOE, ENABLE);    //使能PB,PE端口时钟
+..\HARDWARE\LED\led.c(23): error:  #20: identifier "RCC_APB2Periph_GPIOE" is undefined
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB|RCC_APB2Periph_GPIOE, ENABLE);    //使能PB,PE端口时钟
+..\HARDWARE\LED\led.c(25): error:  #20: identifier "GPIO_Pin_5" is undefined
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;                             //LED0-->PB.5 端口配置
+..\HARDWARE\LED\led.c(26): error:  #20: identifier "GPIO_Mode_Out_PP" is undefined
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;              //推挽输出
+..\HARDWARE\LED\led.c(27): error:  #20: identifier "GPIO_Speed_50MHz" is undefined
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;             //IO口速度为50MHz
+..\HARDWARE\LED\led.c(28): warning:  #223-D: function "GPIO_Init" declared implicitly
+   GPIO_Init(GPIOB, &GPIO_InitStructure);                                        //根据设定参数初始化GPIOB.5
+..\HARDWARE\LED\led.c(29): warning:  #223-D: function "GPIO_SetBits" declared implicitly
+   GPIO_SetBits(GPIOB,GPIO_Pin_5);                                               //PB.5 输出高
+..\HARDWARE\LED\led.c: 3 warnings, 6 errors
+compiling timer.c...
+..\HARDWARE\TIMER\timer.c(4): error:  #5: cannot open source input file "stm32f10x_tim.h": No such file or directory
+  #include "stm32f10x_tim.h"
+..\HARDWARE\TIMER\timer.c: 0 warnings, 1 error
+compiling stm32f10x_tim.c...
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(23): error:  #5: cannot open source input file "stm32f10x_tim.h": No such file or directory
+  #include "stm32f10x_tim.h"
+..\STM32F10x_FWLib\src\stm32f10x_tim.c: 0 warnings, 1 error
+"..\OBJ\test.axf" - 30 Error(s), 13 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\bs\Desktop\实验9 PWM输出实验 寄存器版\USER\RTE
+  F:\MDKfive\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+</pre>
+</body>
+</html>
