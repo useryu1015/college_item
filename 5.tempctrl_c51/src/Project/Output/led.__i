@@ -1,0 +1,1 @@
+"..\Source\led.c" LARGE BROWSE INCDIR(..\Source;..\User) DEBUG OBJECTEXTEND PRINT(.\List\led.lst) TABS (2) OBJECT(.\Output\led.obj)

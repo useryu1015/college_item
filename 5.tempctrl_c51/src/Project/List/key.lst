@@ -1,0 +1,54 @@
+C51 COMPILER V9.52.0.0   KEY                                                               03/31/2022 21:48:08 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Output\key.obj
+COMPILER INVOKED BY: H:\studio\Keil4_C51\C51\BIN\C51.EXE ..\Source\key.c LARGE BROWSE INCDIR(..\Source;..\User) DEBUG OB
+                    -JECTEXTEND PRINT(.\List\key.lst) TABS(2) OBJECT(.\Output\key.obj)
+
+line level    source
+
+   1          #include "led.h"
+   2          #include "key.h"  
+   3          
+   4          uint8 key_state = 1;
+   5          
+   6          /**************************************************************************
+   7          功能描述：触摸按键检测
+   8          入口参数：无
+   9          返回值：无
+  10           *************************************************************************/
+  11          void KEY_Scan(void)
+  12          {
+  13   1         if(TOUCH_KEY == 1)           //检测触摸按键用引脚P5.4是否是高电平 (用手指触摸按键感应区域，引脚为高电平)
+  14   1         {
+  15   2           key_state = ~key_state;    // ques: 按键被按下过。
+  16   2            delay_ms(10);             //软件延时10ms，软件消抖
+  17   2            if(TOUCH_KEY== 1)         //检测触摸按键用引脚P5.4是否依然是高电平
+  18   2            {
+  19   3              led_on(LED_3);          //点亮用户指示灯D3
+  20   3              while(TOUCH_KEY == 1)   //等待触摸按键释放，即如果P5.4一直为高电平，会一直执行空命令
+  21   3              {
+  22   4                ;                     //条件TOUCH_KEY == 1成立，会执行这个空命令
+  23   4              }
+  24   3              led_off(LED_3);         //触摸按键释放，熄灭用户指示灯D3
+  25   3            }
+  26   2         }
+  27   1      }
+  28          
+  29          /*********************************END FILE********************************************/ 
+  30          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     33    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      1    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

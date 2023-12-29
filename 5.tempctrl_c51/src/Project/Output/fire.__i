@@ -1,0 +1,1 @@
+"..\Source\fire.c" LARGE BROWSE INCDIR(..\Source;..\User) DEBUG OBJECTEXTEND PRINT(.\List\fire.lst) TABS (2) OBJECT(.\Output\fire.obj)

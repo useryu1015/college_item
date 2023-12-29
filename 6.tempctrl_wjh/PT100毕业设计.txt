@@ -1,0 +1,30 @@
+
+探头芯片资料：
+https://item.taobao.com/item.htm?spm=a1z09.2.0.0.7f7b2e8du3iIhE&id=655898706360&_u=530m6k3p68b9
+探头资料
+https://buyertrade.taobao.com/trade/detail/tradeSnap.htm?spm=a1z09.2.0.0.7f7b2e8du3iIhE&tradeID=2541641402250515313&snapShot=true
+
+接线说明：
+ a）PT100模块			通过串口采集
+	RXD 接 A9
+	TXD 接 A10
+	5V
+	GND
+
+ b）OLED显示模块			使用I2C传输数据
+	SCK	A5
+	SDA	A7
+	VDD	3.3V
+	GND	G
+
+d）按键
+	K1	B4	复位按键
+	K2	B5	无
+	K3	B6	无
+	K4	B7	无
+	GND
+
+
+串口数据：
+	发送：FF0186000000000079
+	接收：FF86001C0000000095

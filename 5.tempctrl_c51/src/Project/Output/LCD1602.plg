@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\bs\Desktop\C51_test\YZY_仓库监控_毕设0331\实验3-2：LCD1602液晶屏显示实验\LCD1602\Project\LCD1602.uvproj
+Project File Date:  03/31/2022
+
+<h2>Output:</h2>
+Build target 'IK-STC8'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=28 code=1640
+creating hex file from ".\Output\LCD1602"...
+".\Output\LCD1602" - 0 Error(s), 0 Warning(s).

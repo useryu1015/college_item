@@ -1,0 +1,130 @@
+C51 COMPILER V9.52.0.0   MAIN                                                              03/31/2022 22:20:07 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Output\main.obj
+COMPILER INVOKED BY: H:\studio\Keil4_C51\C51\BIN\C51.EXE ..\User\main.c LARGE BROWSE INCDIR(..\Source;..\User) DEBUG OBJ
+                    -ECTEXTEND PRINT(.\List\main.lst) TABS(2) OBJECT(.\Output\main.obj)
+
+line level    source
+
+   1          #include  "lcd1602.h"
+   2          #include  "delay.h"
+   3          #include  "uart.h"
+   4          #include  "dht11.h"
+   5          #include  "beep.h"
+   6          #include  "fire.h"
+   7          #include  "MQ-2.h"
+   8          #include  "key.h"
+   9          
+  10          #define DEF1 10   // 
+  11          #define DEF2 20
+  12          
+  13          
+  14          uint8 code table1[]="LCD1602 check ok";       //要显示的内容1放入数组table1
+  15          uint8 code table2[]="test = ";                //要显示的内容2放入数组table2
+  16          uint8 code table3[]={0,1,2,3,4,5,6,7,8,9};    //常量数组0-9
+  17          
+  18          void show_DHT11(void);
+  19          /*************************************************************************
+  20          功能描述：主函数
+  21          入口参数：无
+  22          返回值：无
+  23          *************************************************************************/
+  24          int main(void)
+  25          {
+  26   1        //uint8 i;    
+  27   1        // 串口初始化：    可以注释掉
+  28   1        DATA_PIN=1;                                   //总线拉高 
+  29   1        Uart1_Init();                                 //串口1初始化
+  30   1        EA = 1;                                       //使能总中断
+  31   1        delay_ms(10);                                 //初始化后延时
+  32   1        
+  33   1        // DHT11 初始化
+  34   1        P3M1 &= 0xFE; P3M0 &= 0xFE;                   //设置P3.0为准双向口
+  35   1        P3M1 &= 0xFD; P3M0 |= 0x02;                   //设置P3.1为推挽输出
+  36   1        
+  37   1      
+  38   1        // 初始化
+  39   1        P2M1 &= 0xFE; P2M0 |= 0x01;   // 蜂鸣器初始化： 设置P2.0为推挽输出  
+  40   1        Sensor_OUT = 0;          //蜂鸣器不鸣响
+  41   1        
+  42   1        // 触摸按键初始化
+  43   1        P5M1 &= 0xEF; P5M0 &= 0xEF;   //设置P5.4为准双向口      // 触摸按键；
+  44   1      
+  45   1        DisplayListChar(0, 0, table1);       //从第一行第1列开始显示table1
+  46   1        DisplayListChar(2, 1, table2);       //从第二行第3列开始显示table2
+  47   1        
+  48   1      
+  49   1        
+  50   1        // LCD Init
+  51   1        lcd_init();                          //液晶屏初始化 
+  52   1        delay_ms(10);
+  53   1        DisplayListChar(1, 0, "sys init...");     //从第一行第2列开始显示 
+  54   1        
+C51 COMPILER V9.52.0.0   MAIN                                                              03/31/2022 22:20:07 PAGE 2   
+
+  55   1        while(1)
+  56   1        {
+  57   2          Sensor_OUT = 0;          //蜂鸣器不鸣响
+  58   2          /****************** 温控&显示部分 ***************************/
+  59   2          Read_DHT11();     // 获取DHT11温湿度值
+  60   2          //Read_DS18B20();     // xxx
+  61   2          show_DHT11();     // lcd显示温度值
+  62   2          
+  63   2      
+  64   2          /****************** 警报部分 ***************************/
+  65   2          fire_heartbeat();   // 火焰传感器
+  66   2          MQ2_heartbeat();    // 传感器检测函数       // 高低电平信号      
+  67   2          KEY_Scan();         // 蜂鸣器终止按钮           
+  68   2          //beep_heartbeat();   // 蜂鸣器 状态更新
+  69   2          
+  70   2          
+  71   2          //SendDataByUart1(fire_state);  SendDataByUart1(MQ2_state); SendDataByUart1(key_state);
+  72   2          
+  73   2          SendStringByUart1("test \r\n");
+  74   2        
+  75   2          delay_ms(1000);       //延时
+  76   2        }
+  77   1      }
+  78          
+  79          
+  80          
+  81          void show_DHT11(void){
+  82   1        //将温湿度值转换为字符串
+  83   1        uint8 tempH = DHT11Value.tempH + 0x30;
+  84   1        uint8 tempL = DHT11Value.tempL + 0x30;
+  85   1        uint8 humidityH = DHT11Value.humyH + 0x30;
+  86   1        uint8 humidityL = DHT11Value.humyL + 0x30;
+  87   1      
+  88   1        lcd_wcom(0x01); //清屏
+  89   1      
+  90   1        DisplayListChar(1, 0, "TEMP");      //从第一行第2列开始显示 
+  91   1        DisplayOneChar(1, 1, tempH);      // 显示温度高位
+  92   1        DisplayOneChar(2, 1, tempL);      // 显示温度低位
+  93   1      
+  94   1        DisplayListChar(8, 0, "HUMI");      // 从第一行第89列开始显示
+  95   1        //DisplayOneChar(8, 1, humidityH);    // 显示 高位
+  96   1        //DisplayOneChar(9, 1, humidityL);    // 显示 低位  
+  97   1        
+  98   1        
+  99   1        DisplayOneChar(7, 1, fire_state + 0x30 );     // 显示温度高位
+ 100   1        DisplayOneChar(9, 1, MQ2_state + 0x30 );      // 显示温度高位
+ 101   1        DisplayOneChar(10, 1, key_state + 0x30 );     // 显示温度高位
+ 102   1        
+ 103   1      
+ 104   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    250    ----
+   CONSTANT SIZE    =     65    ----
+   XDATA SIZE       =   ----       4
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

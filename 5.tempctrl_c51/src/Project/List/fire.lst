@@ -1,0 +1,53 @@
+C51 COMPILER V9.52.0.0   FIRE                                                              03/31/2022 21:51:38 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE FIRE
+OBJECT MODULE PLACED IN .\Output\fire.obj
+COMPILER INVOKED BY: H:\studio\Keil4_C51\C51\BIN\C51.EXE ..\Source\fire.c LARGE BROWSE INCDIR(..\Source;..\User) DEBUG O
+                    -BJECTEXTEND PRINT(.\List\fire.lst) TABS(2) OBJECT(.\Output\fire.obj)
+
+line level    source
+
+   1          #include "led.h"
+   2          #include "MQ-2.h"
+   3          #include "fire.h" 
+   4          
+   5          uint8 fire_state;
+   6          
+   7          /**************************************************************************
+   8          功能描述：传感器检测
+   9          入口参数：无
+  10          返回值：无
+  11           *************************************************************************/
+  12          void fire_heartbeat(void)
+  13          {
+  14   1         if(Sensor_IN2 == 0)        //MQ-2传感器感应到可燃性气体浓度达到一定值，DO针脚输出
+             -低电平      
+  15   1         {
+  16   2           fire_state = 1;
+  17   2           led_on(LED_3);          //点亮用户指示灯D3
+  18   2         }
+  19   1         else                      //MQ-2传感器感应到可燃性气体浓度低于一定值，DO针脚输出�
+             -��电平 
+  20   1         {
+  21   2           fire_state = 0;
+  22   2           led_off(LED_3);         //熄灭用户指示灯D3
+  23   2         }
+  24   1      }
+  25          
+  26          /*********************************END FILE********************************************/ 
+  27          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      1    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

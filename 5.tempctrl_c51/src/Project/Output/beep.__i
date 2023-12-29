@@ -1,0 +1,1 @@
+"..\Source\beep.c" LARGE BROWSE INCDIR(..\Source;..\User) DEBUG OBJECTEXTEND PRINT(.\List\beep.lst) TABS (2) OBJECT(.\Output\beep.obj)

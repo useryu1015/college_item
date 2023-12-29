@@ -1,0 +1,1 @@
+"..\Source\key.c" LARGE BROWSE INCDIR(..\Source;..\User) DEBUG OBJECTEXTEND PRINT(.\List\key.lst) TABS (2) OBJECT(.\Output\key.obj)

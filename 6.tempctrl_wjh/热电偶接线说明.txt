@@ -1,0 +1,19 @@
+
+
+
+
+热电偶接线：
+	VCC	3.3V
+	GND
+	SCK	A5
+	CS	A4
+	SO	A6
+
+OLED接线：
+	SDA	PB15
+	SCL	PB13
+
+RGB灯：
+	G	PB7
+	R	PB8
+	B	PB9

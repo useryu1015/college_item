@@ -1,0 +1,1 @@
+"..\Source\MQ-2.c" LARGE BROWSE INCDIR(..\Source;..\User) DEBUG OBJECTEXTEND PRINT(.\List\MQ-2.lst) TABS (2) OBJECT(.\Output\MQ-2.obj)

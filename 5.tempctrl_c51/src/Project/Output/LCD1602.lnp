@@ -1,0 +1,13 @@
+".\Output\main.obj",
+".\Output\delay.obj",
+".\Output\lcd1602.obj",
+".\Output\dht11.obj",
+".\Output\uart.obj",
+".\Output\key.obj",
+".\Output\fire.obj",
+".\Output\beep.obj",
+".\Output\MQ-2.obj",
+".\Output\led.obj" 
+TO ".\Output\LCD1602" 
+PRINT(".\List\LCD1602.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

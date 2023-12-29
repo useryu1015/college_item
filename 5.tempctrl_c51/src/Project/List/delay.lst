@@ -1,0 +1,57 @@
+C51 COMPILER V9.52.0.0   DELAY                                                             03/31/2022 21:32:09 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\Output\delay.obj
+COMPILER INVOKED BY: H:\studio\Keil4_C51\C51\BIN\C51.EXE ..\Source\delay.c LARGE BROWSE INCDIR(..\Source;..\User) DEBUG 
+                    -OBJECTEXTEND PRINT(.\List\delay.lst) TABS(2) OBJECT(.\Output\delay.obj)
+
+line level    source
+
+   1          
+   2          #include "delay.h"  
+   3          
+   4          
+   5          /*****************************************************************
+   6          功能描述：延时函数
+   7          入口参数：uint16 x ，该值为1时，延时1ms，在11.0592MHZ下
+   8          返回值：无
+   9          *****************************************************************/
+  10          void delay_ms(uint16 x) 
+  11          {  
+  12   1        uint16 j,i;   
+  13   1        for(j=0;j<x;j++)   
+  14   1        {    
+  15   2          for(i=0;i<1580;i++);   
+  16   2        }  
+  17   1      }
+  18          
+  19          /*******************************************************************
+  20          功能描述：延时函数，延时约10us，在11.0592MHZ下
+  21          入口参数：无
+  22          返回值：无
+  23          ********************************************************************/
+  24          void Delay10us(void)    
+  25          {
+  26   1        uint8 i;
+  27   1        _nop_();
+  28   1        i = 33;
+  29   1        while (--i);
+  30   1      }
+  31          
+  32          /*********************************END FILE********************************************/ 
+  33          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     38    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
