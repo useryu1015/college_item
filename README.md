@@ -1,6 +1,6 @@
 ## 红外警报系统（毕设）
 > 视频介绍：[红外警报系统](https://www.bilibili.com/video/BV1cT4y1T7gx/?spm_id_from=333.337.search-card.all.click&vd_source=5292a23e9a80c849a2c727ed746aadb7)
-
+> 
 > 博文：[矩阵按键控制](https://blog.csdn.net/ling0604/article/details/109643518)
 
 * 描述：以STM32为主控平台，DIY智能防盗警报系统；集合声光警报、人机交互、警报时间记录与查询、管理员身份认证等功能。
@@ -14,7 +14,7 @@
 7．RFID：射频识别模块，做门禁&管理员身份认证	        
 
 
-> 项目仓库:[./1.alarm_sys](./1.alarm_sys)
+> 项目仓库：[./1.alarm_sys](./1.alarm_sys)
 ---------------------------
 ## 全自动4轴机械臂
 
@@ -27,24 +27,24 @@
 ### TODO
 * 完整源码
 
-> 项目仓库:[./2.robot](./2.robot)
+> 项目仓库：[./2.robot](./2.robot)
 ---------------------------
 ## Wifi小车
-> 项目仓库:[./3.wifi_car](./3.wifi_car)
+> 项目仓库：[./3.wifi_car](./3.wifi_car)
 ---------------------------
 ## TI杯电赛-寻迹爬坡小车
 
 
-> 项目仓库:[./4.tracking_car](./4.tracking_car)
+> 项目仓库：[./4.tracking_car](./4.tracking_car)
 ---------------------------
 ## 毕设-基于51设计温湿度监控与报警系统
 
-> 项目仓库:[./5.tempctrl_c51](./5.tempctrl_c51)
+> 项目仓库：[./5.tempctrl_c51](./5.tempctrl_c51)
 ---------------------------
 ## 毕设-PT100数据采集
 
 
 ## 毕设-热电偶数据采集
 
-> 项目仓库:[./6.tempctrl_wjh](./6.tempctrl_wjh)
+> 项目仓库：[./6.tempctrl_wjh](./6.tempctrl_wjh)
 ---------------------------
