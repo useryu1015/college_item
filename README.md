@@ -1,3 +1,4 @@
+# [1.alarm_sys](1.alarm_sys)
 ## 红外警报系统（毕设）
 > 视频介绍：[红外警报系统](https://www.bilibili.com/video/BV1cT4y1T7gx/?spm_id_from=333.337.search-card.all.click&vd_source=5292a23e9a80c849a2c727ed746aadb7)
 > 
@@ -14,8 +15,9 @@
 7．RFID：射频识别模块，做门禁&管理员身份认证	        
 
 
-> 项目仓库：[./1.alarm_sys](./1.alarm_sys)
+
 ---------------------------
+# [2.robot](2.robot)
 ## 全自动4轴机械臂
 
 * 项目描述：机械臂能在线设置各个点位（如取料点、过渡点、原点、放料点等）自动踩点完成任务。
@@ -27,24 +29,31 @@
 ### TODO
 * 完整源码
 
-> 项目仓库：[./2.robot](./2.robot)
+
 ---------------------------
+# [3.wifi_car](3.wifi_car)
 ## Wifi小车
-> 项目仓库：[./3.wifi_car](./3.wifi_car)
+
 ---------------------------
+# [4.tracking_car](4.tracking_car)
 ## TI杯电赛-寻迹爬坡小车
+![](/document)
 
 
-> 项目仓库：[./4.tracking_car](./4.tracking_car)
 ---------------------------
+# [5.tempctrl_c51](5.tempctrl_c51)
 ## 毕设-基于51设计温湿度监控与报警系统
 
-> 项目仓库：[./5.tempctrl_c51](./5.tempctrl_c51)
+
 ---------------------------
+# [6.tempctrl_wjh](6.tempctrl_wjh)
 ## 毕设-PT100数据采集
 
 
 ## 毕设-热电偶数据采集
 
-> 项目仓库：[./6.tempctrl_wjh](./6.tempctrl_wjh)
+
+---------------------------
+# [document](document)
+![](/document/代打毕设/psc12313.png)
 ---------------------------
